@@ -333,11 +333,7 @@ void Stepper::set_directions() {
     #endif
   #endif // !LIN_ADVANCE
 
-<<<<<<< HEAD
-  // After changing directions, an small delay could be needed.
-=======
   // A small delay may be needed after changing direction
->>>>>>> bugfix-2.0.x
   #if MINIMUM_STEPPER_DIR_DELAY > 0
     DELAY_NS(MINIMUM_STEPPER_DIR_DELAY);
   #endif
