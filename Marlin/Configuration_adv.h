@@ -444,7 +444,7 @@
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
 //
-#define JUNCTION_DEVIATION
+//#define JUNCTION_DEVIATION
 #if ENABLED(JUNCTION_DEVIATION)
   #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
 #endif
@@ -1273,7 +1273,7 @@
   /**
    * M915 Z Axis Calibration
    *
-   * - Adjust Z stepper current,
+   * - Adnst Z stepper current,
    * - Drive the Z axis to its physical maximum, and
    * - Home Z to account for the lost steps.
    *
