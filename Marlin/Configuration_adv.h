@@ -1050,7 +1050,7 @@
  */
 #if HAS_DRIVER(TMC26X)
 
-  #define X_MAX_CURRENT      800 // in mA
+  #define X_MAX_CURRENT     1000 // in mA
   #define X_SENSE_RESISTOR    91 // in mOhms
   #define X_MICROSTEPS        16 // number of microsteps
 
@@ -1058,7 +1058,7 @@
   #define X2_SENSE_RESISTOR   91
   #define X2_MICROSTEPS       16
 
-  #define Y_MAX_CURRENT      800
+  #define Y_MAX_CURRENT     1000
   #define Y_SENSE_RESISTOR    91
   #define Y_MICROSTEPS        16
 
@@ -1066,7 +1066,7 @@
   #define Y2_SENSE_RESISTOR   91
   #define Y2_MICROSTEPS       16
 
-  #define Z_MAX_CURRENT      800
+  #define Z_MAX_CURRENT     1000
   #define Z_SENSE_RESISTOR    91
   #define Z_MICROSTEPS        16
 
