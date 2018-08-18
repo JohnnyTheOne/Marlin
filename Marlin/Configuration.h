@@ -463,7 +463,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 1000
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -901,7 +901,7 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS -2
 #define Z_MIN_POS 0
-#define X_MAX_POS (X_BED_SIZE + 8)
+#define X_MAX_POS (X_BED_SIZE + 7)
 #define Y_MAX_POS (Y_BED_SIZE + 8)
 #define Z_MAX_POS 250
 
@@ -1294,9 +1294,9 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
-  #define NOZZLE_PARK_XY_FEEDRATE 100   // X and Y axes feedrate in mm/s (also used for delta printers Z axis)
-  #define NOZZLE_PARK_Z_FEEDRATE 5      // Z axis feedrate in mm/s (not used for delta printers)
+  #define NOZZLE_PARK_POINT { (X_MAX_POS), (Y_MIN_POS + 1), 10 }
+  #define NOZZLE_PARK_XY_FEEDRATE 200   // X and Y axes feedrate in mm/s (also used for delta printers Z axis)
+  #define NOZZLE_PARK_Z_FEEDRATE 20     // Z axis feedrate in mm/s (not used for delta printers)
 #endif
 
 /**
