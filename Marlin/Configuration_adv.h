@@ -1086,7 +1086,7 @@
   #define X_SENSE_RESISTOR    91 // in mOhms
   #define X_MICROSTEPS        16 // number of microsteps
 
-  #define X2_MAX_CURRENT     1000
+  #define X2_MAX_CURRENT    1000
   #define X2_SENSE_RESISTOR   91
   #define X2_MICROSTEPS       16
 
@@ -1287,7 +1287,7 @@
   /**
    * M915 Z Axis Calibration
    *
-   * - Adnst Z stepper current,
+   * - Adjust Z stepper current,
    * - Drive the Z axis to its physical maximum, and
    * - Home Z to account for the lost steps.
    *
