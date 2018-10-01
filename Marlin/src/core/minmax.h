@@ -20,26 +20,29 @@
  *
  */
 
-#pragma once
-
 #undef MIN
 #undef MAX
 
 #ifdef __cplusplus
 
-  extern "C++" {
+  #ifndef _MINMAX_H_
+  #define _MINMAX_H_
 
-    // C++11 solution that is standards compliant. Return type is deduced automatically
-    template <class L, class R> static inline constexpr auto MIN(const L lhs, const R rhs) -> decltype(lhs + rhs) {
-      return lhs < rhs ? lhs : rhs;
-    }
-    template <class L, class R> static inline constexpr auto MAX(const L lhs, const R rhs) -> decltype(lhs + rhs) {
-      return lhs > rhs ? lhs : rhs;
-    }
-    template<class T, class ... Ts> static inline constexpr const T MIN(T V, Ts... Vs) { return MIN(V, MIN(Vs...)); }
-    template<class T, class ... Ts> static inline constexpr const T MAX(T V, Ts... Vs) { return MAX(V, MAX(Vs...)); }
+    extern "C++" {
 
-  }
+      // C++11 solution that is standards compliant. Return type is deduced automatically
+      template <class L, class R> static inline constexpr auto MIN(const L lhs, const R rhs) -> decltype(lhs + rhs) {
+        return lhs < rhs ? lhs : rhs;
+      }
+      template <class L, class R> static inline constexpr auto MAX(const L lhs, const R rhs) -> decltype(lhs + rhs) {
+        return lhs > rhs ? lhs : rhs;
+      }
+      template<class T, class ... Ts> static inline constexpr const T MIN(T V, Ts... Vs) { return MIN(V, MIN(Vs...)); }
+      template<class T, class ... Ts> static inline constexpr const T MAX(T V, Ts... Vs) { return MAX(V, MAX(Vs...)); }
+
+    }
+
+  #endif
 
 #else
 
@@ -51,7 +54,7 @@
   #define MIN_3(a,...)    MIN_2(a,MIN_2(__VA_ARGS__))
   #define MIN_4(a,...)    MIN_2(a,MIN_3(__VA_ARGS__))
   #define MIN_5(a,...)    MIN_2(a,MIN_4(__VA_ARGS__))
-  #define MIN_6(a,...)    MIN_2(a,MIN_4(__VA_ARGS__))
+  #define MIN_6(a,...)    MIN_2(a,MIN_5(__VA_ARGS__))
   #define __MIN_N(N, ...) MIN_ ## N(__VA_ARGS__)
   #define _MIN_N(N, ...)  __MIN_N(N, __VA_ARGS__)
   #define MIN(...)        _MIN_N(NUM_ARGS(__VA_ARGS__), __VA_ARGS__)
@@ -60,7 +63,7 @@
   #define MAX_3(a,...)    MAX_2(a,MAX_2(__VA_ARGS__))
   #define MAX_4(a,...)    MAX_2(a,MAX_3(__VA_ARGS__))
   #define MAX_5(a,...)    MAX_2(a,MAX_4(__VA_ARGS__))
-  #define MAX_6(a,...)    MAX_2(a,MAX_4(__VA_ARGS__))
+  #define MAX_6(a,...)    MAX_2(a,MAX_5(__VA_ARGS__))
   #define __MAX_N(N, ...) MAX_ ## N(__VA_ARGS__)
   #define _MAX_N(N, ...)  __MAX_N(N, __VA_ARGS__)
   #define MAX(...)        _MAX_N(NUM_ARGS(__VA_ARGS__), __VA_ARGS__)
