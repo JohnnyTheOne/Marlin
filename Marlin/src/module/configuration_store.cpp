@@ -37,8 +37,8 @@
  */
 
 // Change EEPROM version if the structure changes
-#define EEPROM_VERSION "V60"
-#define EEPROM_OFFSET 0
+#define EEPROM_VERSION "V61"
+#define EEPROM_OFFSET 100
 
 // Check the integrity of data offsets.
 // Can be disabled for production build.
@@ -375,6 +375,32 @@ void MarlinSettings::postprocess() {
   if (memcmp(oldpos, current_position, sizeof(oldpos)))
     report_current_position();
 }
+
+#if ENABLED(SD_FIRMWARE_UPDATE)
+
+  #if ENABLED(EEPROM_SETTINGS)
+    static_assert(
+      !WITHIN(SD_FIRMWARE_UPDATE_EEPROM_ADDR, EEPROM_OFFSET, EEPROM_OFFSET + sizeof(SettingsData)),
+      "SD_FIRMWARE_UPDATE_EEPROM_ADDR collides with EEPROM settings storage."
+    );
+  #endif
+
+  bool MarlinSettings::sd_update_status() {
+    uint8_t val;
+    persistentStore.read_data(SD_FIRMWARE_UPDATE_EEPROM_ADDR, &val);
+    return (val == SD_FIRMWARE_UPDATE_ACTIVE_VALUE);
+  }
+
+  bool MarlinSettings::set_sd_update_status(const bool enable) {
+    if (enable != sd_update_status())
+      persistentStore.write_data(
+        SD_FIRMWARE_UPDATE_EEPROM_ADDR,
+        enable ? SD_FIRMWARE_UPDATE_ACTIVE_VALUE : SD_FIRMWARE_UPDATE_INACTIVE_VALUE
+      );
+    return true;
+  }
+
+#endif // SD_FIRMWARE_UPDATE
 
 #if ENABLED(EEPROM_SETTINGS)
   #include "../HAL/shared/persistent_store_api.h"
