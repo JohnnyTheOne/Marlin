@@ -680,9 +680,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          2000   // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  2000   // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   2000   // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION          3000   // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  3000   // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   3000   // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk (mm/s)
@@ -1316,7 +1316,7 @@
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_TEMP_HOTEND 245
+#define PREHEAT_2_TEMP_HOTEND 235
 #define PREHEAT_2_TEMP_BED     85
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
