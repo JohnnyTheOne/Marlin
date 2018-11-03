@@ -277,7 +277,7 @@
     #define AUTO_POWER_FANS           // Turn on PSU if fans need power
     #define AUTO_POWER_E_FANS
     #define AUTO_POWER_CONTROLLERFAN
-    #define POWER_TIMEOUT 30
+    #define POWER_TIMEOUT 1800 // 0:30
   #endif
 
 #endif
