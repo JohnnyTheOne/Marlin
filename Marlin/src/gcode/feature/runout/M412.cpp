@@ -20,28 +20,26 @@
  *
  */
 
-#include "../gcode.h"
-#include "../../core/serial.h"
-#include "../../module/printcounter.h"
-#include "../../libs/duration_t.h"
-#include "../../lcd/ultralcd.h"
+#include "../../../inc/MarlinConfig.h"
 
-#if NUM_SERIAL > 1
-  #include "../../gcode/queue.h"
-#endif
+#if ENABLED(FILAMENT_RUNOUT_SENSOR)
+
+#include "../../gcode.h"
+#include "../../../feature/runout.h"
 
 /**
- * M31: Get the time since the start of SD Print (or last M109)
+ * M412: Enable / Disable filament runout detection
  */
-void GcodeSuite::M31() {
-  #if NUM_SERIAL > 1
-    const int16_t port = command_queue_port[cmd_queue_index_r];
-  #endif
-  char buffer[21];
-  duration_t elapsed = print_job_timer.duration();
-  elapsed.toString(buffer);
-  ui.setstatus(buffer);
-
-  SERIAL_ECHO_START_P(port);
-  SERIAL_ECHOLNPAIR_P(port, "Print time: ", buffer);
+void GcodeSuite::M412() {
+  if (parser.seen('S')) {
+    runout.reset();
+    runout.enabled = parser.value_bool();
+  }
+  else {
+    SERIAL_ECHO_START();
+    SERIAL_ECHOPGM("Filament runout ");
+    serialprintln_onoff(runout.enabled);
+  }
 }
+
+#endif // FILAMENT_RUNOUT_SENSOR
