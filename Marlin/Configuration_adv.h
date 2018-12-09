@@ -952,7 +952,6 @@
 // Moves (or segments) with fewer steps than this will be joined with the next move
 #define MIN_STEPS_PER_SEGMENT 6
 
-
 /**
  * Minimum delay after setting the stepper DIR (in ns)
  *     0 : No delay (Expect at least 10µS since one Stepper ISR must transpire)
@@ -966,7 +965,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MINIMUM_STEPPER_DIR_DELAY 20
+#define MINIMUM_STEPPER_DIR_DELAY 650
 
 /**
  * Minimum stepper driver pulse width (in µs)
@@ -978,7 +977,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MINIMUM_STEPPER_PULSE 0
+#define MINIMUM_STEPPER_PULSE 2
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -992,7 +991,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MAXIMUM_STEPPER_RATE 400000
+#define MAXIMUM_STEPPER_RATE 250000
 
 // @section temperature
 
@@ -1290,7 +1289,7 @@
   #define Y_CURRENT          800
   #define Y_MICROSTEPS        16
 
-  #define Z_CURRENT         1000
+  #define Z_CURRENT          950
   #define Z_MICROSTEPS        16
 
   #define X2_CURRENT         800
@@ -1327,14 +1326,14 @@
    * Override default SPI pins for TMC2130 and TMC2660 drivers here.
    * The default pins can be found in your board's pins file.
    */
-  //#define X_CS_PIN          -1
-  //#define Y_CS_PIN          -1
-  //#define Z_CS_PIN          -1
+  #define X_CS_PIN          40
+  #define Y_CS_PIN          42
+  #define Z_CS_PIN          65
   //#define X2_CS_PIN         -1
   //#define Y2_CS_PIN         -1
   //#define Z2_CS_PIN         -1
   //#define Z3_CS_PIN         -1
-  //#define E0_CS_PIN         -1
+  #define E0_CS_PIN         63
   //#define E1_CS_PIN         -1
   //#define E2_CS_PIN         -1
   //#define E3_CS_PIN         -1
@@ -1680,7 +1679,7 @@
 /**
  * Disable all Volumetric extrusion options
  */
-#define NO_VOLUMETRICS
+//#define NO_VOLUMETRICS
 
 #if DISABLED(NO_VOLUMETRICS)
   /**
