@@ -596,13 +596,6 @@
   #define ENCODER_100X_STEPS_PER_SEC  80  // (steps/s) Encoder rate for 100x speed
 #endif
 
-// Play a beep when the feedrate is changed from the Status Screen
-//#define BEEP_ON_FEEDRATE_CHANGE
-#if ENABLED(BEEP_ON_FEEDRATE_CHANGE)
-  #define FEEDRATE_CHANGE_BEEP_DURATION   10
-  #define FEEDRATE_CHANGE_BEEP_FREQUENCY 440
-#endif
-
 // Include a page of printer information in the LCD Main Menu
 //#define LCD_INFO_MENU
 
@@ -1009,7 +1002,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-#define MINIMUM_STEPPER_PULSE 2
+#define MINIMUM_STEPPER_PULSE 4
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -1318,7 +1311,7 @@
   #define Y_CURRENT          800
   #define Y_MICROSTEPS        16
 
-  #define Z_CURRENT          950
+  #define Z_CURRENT          900
   #define Z_MICROSTEPS        16
 
   #define X2_CURRENT         800
@@ -1707,6 +1700,11 @@
 //#define CNC_COORDINATE_SYSTEMS
 
 /**
+ * M43 - display pin status, watch pins for changes, watch endstops & toggle LED, Z servo probe test, toggle pins
+ */
+#define PINS_DEBUGGING
+
+/**
  * Auto-report temperatures with M155 S<seconds>
  */
 #define AUTO_REPORT_TEMPERATURES
@@ -1960,13 +1958,6 @@
   #define WIFI_SSID "Wifi SSID"
   #define WIFI_PWD  "Wifi Password"
 #endif
-
-// @section develop
-
-/**
- * M43 - display pin status, watch pins for changes, watch endstops & toggle LED, Z servo probe test, toggle pins
- */
-#define PINS_DEBUGGING
 
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE
