@@ -92,18 +92,21 @@ void GcodeSuite::M24() {
   #endif
 
   #if ENABLED(PARK_HEAD_ON_PAUSE)
-    resume_print();
-  #else
-    if (card.isFileOpen()) {
-      card.startFileprint();
-      print_job_timer.start();
+    if (did_pause_print) {
+      resume_print();
+      return;
     }
+  #endif
 
-    ui.reset_status();
-    
-    #ifdef ACTION_ON_RESUME
-      SERIAL_ECHOLNPGM("//action:" ACTION_ON_RESUME);
-    #endif
+  if (card.isFileOpen()) {
+    card.startFileprint();
+    print_job_timer.start();
+  }
+
+  ui.reset_status();
+
+  #ifdef ACTION_ON_RESUME
+    SERIAL_ECHOLNPGM("//action:" ACTION_ON_RESUME);
   #endif
 }
 
@@ -111,13 +114,15 @@ void GcodeSuite::M24() {
  * M25: Pause SD Print
  */
 void GcodeSuite::M25() {
+  
+  // Set initial pause flag to prevent more commands from landing in the queue while we try to pause
+  #if ENABLED(SDSUPPORT)
+    if (IS_SD_PRINTING()) { card.pauseSDPrint(); }
+  #endif
+
   #if ENABLED(PARK_HEAD_ON_PAUSE)
     M125();
   #else
-    #if ENABLED(SDSUPPORT)
-      if (IS_SD_PRINTING()) card.pauseSDPrint();
-    #endif
-
     print_job_timer.pause();
     ui.reset_status();
 
