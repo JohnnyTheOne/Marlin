@@ -323,14 +323,10 @@ bool pause_print(const float &retract, const point_t &park_point, const float &u
 
   if (did_pause_print) return false; // already paused
 
-  #ifdef ACTION_ON_PAUSE
-    SERIAL_ECHOLNPGM("//action:" ACTION_ON_PAUSE);
-  #endif
-
-  #if HAS_LCD_MENU
-    if (show_lcd) lcd_advanced_pause_show_message(ADVANCED_PAUSE_MESSAGE_INIT, ADVANCED_PAUSE_MODE_PAUSE_PRINT);
-  #else
-    UNUSED(show_lcd);
+  #ifdef ACTION_ON_PAUSED
+    host_action_paused();
+  #elif defined(ACTION_ON_PAUSE)
+    host_action_pause();
   #endif
 
   if (!DEBUGGING(DRYRUN) && unload_length && thermalManager.targetTooColdToExtrude(active_extruder)) {
@@ -341,6 +337,8 @@ bool pause_print(const float &retract, const point_t &park_point, const float &u
         lcd_advanced_pause_show_message(ADVANCED_PAUSE_MESSAGE_STATUS);
         LCD_MESSAGEPGM(MSG_M600_TOO_COLD);
       }
+    #else
+      UNUSED(show_lcd);
     #endif
 
     return false; // unable to reach safe temperature
@@ -519,11 +517,11 @@ void wait_for_confirmation(const bool is_reload/*=false*/, const int8_t max_beep
  */
 void resume_print(const float &slow_load_length/*=0*/, const float &fast_load_length/*=0*/, const float &purge_length/*=ADVANCED_PAUSE_PURGE_LENGTH*/, const int8_t max_beep_count/*=0*/ DXC_ARGS) {
   /*
-  SERIAL_ECHOPGM("start of resume_print()\n");
+  SERIAL_ECHOLNPGM("start of resume_print()");
   SERIAL_ECHOPAIR("\ndual_x_carriage_mode:", dual_x_carriage_mode);
   SERIAL_ECHOPAIR("\nextruder_duplication_enabled:", extruder_duplication_enabled);
   SERIAL_ECHOPAIR("\nactive_extruder:", active_extruder);
-  SERIAL_ECHOPGM("\n\n");
+  SERIAL_ECHOLNPGM("\n");
   //*/
 
   if (!did_pause_print) return;
@@ -570,8 +568,10 @@ void resume_print(const float &slow_load_length/*=0*/, const float &fast_load_le
     lcd_advanced_pause_show_message(ADVANCED_PAUSE_MESSAGE_STATUS);
   #endif
 
-  #ifdef ACTION_ON_RESUME
-    SERIAL_ECHOLNPGM("//action:" ACTION_ON_RESUME);
+  #ifdef ACTION_ON_RESUMED
+    host_action_resumed();
+  #elif defined(ACTION_ON_RESUME)
+    host_action_resume();
   #endif
 
   --did_pause_print;
