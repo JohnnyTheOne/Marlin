@@ -179,10 +179,10 @@
       #endif
     #endif
 
-    //#define MISO_PIN      P0_17   // (50)  system defined J3-10 & AUX-3
-    //#define MOSI_PIN      P0_18   // (51)  system defined J3-10 & AUX-3
-    //#define SCK_PIN       P0_15   // (52)  system defined J3-9 & AUX-3
-    //#define SS_PIN        P1_23   // (53)  system defined J3-5 & AUX-3 - sometimes called SDSS
+    #define MISO_PIN      P0_17   // (50)  system defined J3-10 & AUX-3
+    #define MOSI_PIN      P0_18   // (51)  system defined J3-10 & AUX-3
+    #define SCK_PIN       P0_15   // (52)  system defined J3-9 & AUX-3
+    #define SS_PIN        P1_23   // (53)  system defined J3-5 & AUX-3 - sometimes called SDSS
 
     #if ENABLED(MINIPANEL)
       // GLCD features
