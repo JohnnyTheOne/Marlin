@@ -321,7 +321,7 @@
     // Example 2. A REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER display is in use. 
     // Note that with this configuration the SD card reader attached to the LCD (if present) can not be
     // used (as the pins will be in use). So LPC_SD_LCD must not be defined.
-    //#define SKR_USE_LCD_SD_CARD_PINS_FOR_CS
+    #define SKR_USE_LCD_SD_CARD_PINS_FOR_CS
     #ifdef SKR_USE_LCD_SD_CARD_PINS_FOR_CS
       #define X_CS_PIN      P0_02
       #define Y_CS_PIN      P0_03
@@ -338,7 +338,7 @@
     // Example 3: We use the driver enable pins for chip select.
     // Note that with this option we must not send commands to the drivers when they are enabled. This means
     // that advanced features like driver monitoring will not be available.
-    #define SKR_USE_ENABLE_CS
+    //#define SKR_USE_ENABLE_CS
     #ifdef SKR_USE_ENABLE_FOR_CS
       #define X_CS_PIN      X_ENABLE_PIN
       #define Y_CS_PIN      Y_ENABLE_PIN
