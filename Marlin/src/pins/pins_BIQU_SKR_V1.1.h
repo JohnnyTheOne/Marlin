@@ -231,6 +231,7 @@
   #define ONBOARD_SD_CS      P0_06   // Chip select for "System" SD card
 
 #endif
+
 // Trinamic driver support
 
 #if HAS_TRINAMIC
