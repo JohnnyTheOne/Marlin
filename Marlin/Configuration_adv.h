@@ -1481,8 +1481,8 @@
   //#define Y2_CS_PIN         -1
   //#define Z2_CS_PIN         -1
   //#define Z3_CS_PIN         -1
-  //#define E0_CS_PIN         P0_12 //63
-  //#define E1_CS_PIN         P0_10
+  //#define E0_CS_PIN         -1
+  //#define E1_CS_PIN         -1
   //#define E2_CS_PIN         -1
   //#define E3_CS_PIN         -1
   //#define E4_CS_PIN         -1

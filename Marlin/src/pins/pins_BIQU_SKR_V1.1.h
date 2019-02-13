@@ -260,7 +260,7 @@
 
   // We are using one or more TMC SPI based drivers, we will use software SPI because we may be sharing
   // the pins with a display or sd card
-  #define TMC_USE_SW_SPI
+  //#define TMC_USE_SW_SPI
   #define TMC_SW_MOSI       P0_18
   #define TMC_SW_MISO       P0_17
   // To minimise pin usage use the same clock pin as the display/SD card reader. Doing this may generate
