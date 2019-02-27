@@ -89,6 +89,11 @@
 /**
  * LCD / Controller
  *
+ * As of 20 JAN 2019 only the REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER display has
+ * been tested with these settings. It can be connected to the SKR using standard cables
+ * via the EXP1 and EXP2 ports. Other displays may need a custom cable and/or changes to
+ * the pins defined below.
+ *
  * All controllers can use J3 and J5 on the Re-ARM board.  Custom cabling will be required.
  */
 
@@ -223,11 +228,11 @@
     #define SHARED_SD_CARD
     #undef SD_DETECT_PIN // there is also no detect pin for the onboard card
   #endif
-  #define SCK_PIN            P0_07
-  #define MISO_PIN           P0_08
-  #define MOSI_PIN           P0_09
-  #define SS_PIN             P0_06   // Chip select for SD card used by Marlin
-  #define ONBOARD_SD_CS      P0_06   // Chip select for "System" SD card
+  #define SCK_PIN          P0_07
+  #define MISO_PIN         P0_08
+  #define MOSI_PIN         P0_09
+  #define SS_PIN           P1_23   // Chip select for SD card used by Marlin
+  #define ONBOARD_SD_CS    P0_06   // Chip select for "System" SD card
 
 #endif
 
@@ -318,7 +323,7 @@
       #define E1_CS_PIN     P1_31
     #endif
 
-    // Example 2. A REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER display is in use. 
+    // Example 2. A REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER display is in use.
     // Note that with this configuration the SD card reader attached to the LCD (if present) can not be
     // used (as the pins will be in use). So LPC_SD_LCD must not be defined.
     #define SKR_USE_LCD_SD_CARD_PINS_FOR_CS
