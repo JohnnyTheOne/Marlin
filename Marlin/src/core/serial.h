@@ -67,7 +67,7 @@ extern uint8_t marlin_debug_flags;
 #define SERIAL_ECHOLN(x)        SERIAL_OUT(println, x)
 #define SERIAL_PRINT(x,b)       SERIAL_OUT(print, x, b)
 #define SERIAL_PRINTLN(x,b)     SERIAL_OUT(println, x, b)
-#define SERIAL_PRINTF(args...)  SERIAL_OUT(printf, args)
+#define SERIAL_PRINTF(...)      SERIAL_OUT(printf, __VA_ARGS__)
 #define SERIAL_FLUSH()          SERIAL_OUT(flush)
 
 #if TX_BUFFER_SIZE > 0
@@ -110,7 +110,7 @@ extern uint8_t marlin_debug_flags;
 #define __SELP_N(N,...)   _SELP_##N(__VA_ARGS__)
 #define _SELP_N(N,...)    __SELP_N(N,__VA_ARGS__)
 #define _SELP_1(PRE)      SERIAL_ECHOLNPGM(PRE)
-#define _SELP_2(PRE,V)    do{ serial_echopair_PGM(PSTR(PRE),V); SERIAL_EOL(); }
+#define _SELP_2(PRE,V)    do{ serial_echopair_PGM(PSTR(PRE),V); SERIAL_EOL(); }while(0)
 #define _SELP_3(a,b,c)    do{ _SEP_2(a,b); SERIAL_ECHOLNPGM(c); }while(0)
 #define _SELP_4(a,b,...)  do{ _SEP_2(a,b); _SELP_2(__VA_ARGS__); }while(0)
 #define _SELP_5(a,b,...)  do{ _SEP_2(a,b); _SELP_3(__VA_ARGS__); }while(0)
