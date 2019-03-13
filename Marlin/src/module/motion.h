@@ -135,8 +135,6 @@ typedef struct { float min, max; } axis_limits_t;
   #define update_software_endstops(...) NOOP
 #endif
 
-void clamp_to_software_endstops(float target[XYZ]);
-
 void report_current_position();
 
 inline void set_current_from_destination() { COPY(current_position, destination); }

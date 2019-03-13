@@ -171,4 +171,3 @@ CMakeListsPrivate.txt
 
 #CLion
 cmake-build-*
-buildroot/share/tests/AVR_tests
