@@ -65,9 +65,9 @@
 // Temperature Sensors
 //  3.3V max when defined as an analog input
 //
-#define TEMP_BED_PIN       0   // A0 (T0) - (67) - TEMP_BED_PIN
-#define TEMP_0_PIN         1   // A1 (T1) - (68) - TEMP_0_PIN
-#define TEMP_1_PIN         2   // A2 (T2) - (69) - TEMP_1_PIN
+#define TEMP_BED_PIN       0   // Analog Input
+#define TEMP_0_PIN         1   // Analog Input
+#define TEMP_1_PIN         2   // Analog Input
 
 //
 // Heaters / Fans
@@ -80,11 +80,6 @@
 #endif
 #define FAN_PIN            P2_03
 #define HEATER_BED_PIN     P2_05
-
-//
-// Misc. Functions
-//
-#define SDSS               P1_23   // (53)
 
 /**
  * LCD / Controller
@@ -187,7 +182,7 @@
 
   // When using any TMC SPI-based drivers, software SPI is used
   // because pins may be shared with the display or SD card.
-  //#define TMC_USE_SW_SPI
+  #define TMC_USE_SW_SPI
   #define TMC_SW_MOSI       P0_18
   #define TMC_SW_MISO       P0_17
   // To minimize pin usage use the same clock pin as the display/SD card reader. (May generate LCD noise.)
