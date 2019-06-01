@@ -699,7 +699,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.65, 80.32, 400, 813.5 }  // E0 100 / 415 /E1 195
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.65, 80.32, 400, 813.5 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -731,7 +731,7 @@
 //
 // Use Junction Deviation instead of traditional Jerk Limiting
 //
-//#define JUNCTION_DEVIATION
+#define JUNCTION_DEVIATION
 #if ENABLED(JUNCTION_DEVIATION)
   #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
 #endif
