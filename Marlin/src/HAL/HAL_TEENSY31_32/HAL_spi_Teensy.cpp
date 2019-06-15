@@ -38,12 +38,14 @@ void spiBegin(void) {
   #if !PIN_EXISTS(SS)
     #error "SS_PIN not defined!"
   #endif
-  OUT_WRITE(SS_PIN, HIGH);
+  SET_OUTPUT(SS_PIN);
+  WRITE(SS_PIN, HIGH);
   SET_OUTPUT(SCK_PIN);
   SET_INPUT(MISO_PIN);
   SET_OUTPUT(MOSI_PIN);
 
-  #if 0 && DISABLED(SOFTWARE_SPI)
+  //#if DISABLED(SOFTWARE_SPI)
+  #if 0
     // set SS high - may be chip select for another SPI device
     #if SET_SPI_SS_HIGH
       WRITE(SS_PIN, HIGH);
