@@ -1866,7 +1866,7 @@
     // TMC2209: 0...255. TMC2130: -64...63
     #define X_STALL_SENSITIVITY  3
     #define Y_STALL_SENSITIVITY  3
-    #define Z_STALL_SENSITIVITY  -60
+    #define Z_STALL_SENSITIVITY  0
   #endif
 
   /**
