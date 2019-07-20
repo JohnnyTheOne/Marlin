@@ -618,8 +618,8 @@
   //#define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
   #define ENDSTOPPULLUP_YMIN
-  //#define ENDSTOPPULLUP_ZMIN
-  //#define ENDSTOPPULLUP_ZMIN_PROBE
+  #define ENDSTOPPULLUP_ZMIN
+  #define ENDSTOPPULLUP_ZMIN_PROBE
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
@@ -668,7 +668,7 @@
 //#define Z3_DRIVER_TYPE A4988
 #define E0_DRIVER_TYPE DRV8825
 #define E1_DRIVER_TYPE DRV8825
-//#define E2_DRIVER_TYPE A4988
+//#define E2_DRIVER_TYPE DRV8825
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
 //#define E5_DRIVER_TYPE A4988

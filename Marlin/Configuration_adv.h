@@ -1638,7 +1638,7 @@
   #if AXIS_IS_TMC(X)
     #define X_CURRENT     800  // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_MICROSTEPS   16  // 0..256
-    #define X_RSENSE     0.11  // TMC5160 0.075
+    #define X_RSENSE     0.11  // TMC2130 0.11 TMC5160 0.075
   #endif
 
   #if AXIS_IS_TMC(X2)
