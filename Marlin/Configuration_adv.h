@@ -345,7 +345,7 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN P2_04
+#define E0_AUTO_FAN_PIN -1 //P2_04
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -1642,7 +1642,7 @@
   #if AXIS_IS_TMC(X)
     #define X_CURRENT     800  // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_MICROSTEPS   16  // 0..256
-    #define X_RSENSE     0.11  // TMC2130 0.11 TMC5160 0.075
+    #define X_RSENSE     0.075  // TMC2130 0.11 TMC5160 0.075
   #endif
 
   #if AXIS_IS_TMC(X2)
@@ -1654,7 +1654,7 @@
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT     800
     #define Y_MICROSTEPS   16
-    #define Y_RSENSE     0.11
+    #define Y_RSENSE     0.075
   #endif
 
   #if AXIS_IS_TMC(Y2)
@@ -1666,7 +1666,7 @@
   #if AXIS_IS_TMC(Z)
     #define Z_CURRENT     800
     #define Z_MICROSTEPS   16
-    #define Z_RSENSE     0.11
+    #define Z_RSENSE     0.075
   #endif
 
   #if AXIS_IS_TMC(Z2)
@@ -1684,7 +1684,7 @@
   #if AXIS_IS_TMC(E0)
     #define E0_CURRENT    800
     #define E0_MICROSTEPS  16
-    #define E0_RSENSE    0.11
+    #define E0_RSENSE    0.075
   #endif
 
   #if AXIS_IS_TMC(E1)
@@ -1721,9 +1721,9 @@
    * Override default SPI pins for TMC2130, TMC2160, TMC2660, TMC5130 and TMC5160 drivers here.
    * The default pins can be found in your board's pins file.
    */
-  #define X_CS_PIN          P1_17
-  #define Y_CS_PIN          P1_15
-  #define Z_CS_PIN          P1_10
+  //#define X_CS_PIN          -1
+  //#define Y_CS_PIN          -1
+  //#define Z_CS_PIN          -1
   //#define X2_CS_PIN         -1
   //#define Y2_CS_PIN         -1
   //#define Z2_CS_PIN         -1
@@ -2552,7 +2552,7 @@
 /**
  * M43 - display pin status, watch pins for changes, watch endstops & toggle LED, Z servo probe test, toggle pins
  */
-#define PINS_DEBUGGING
+//#define PINS_DEBUGGING
 
 // Enable Marlin dev mode which adds some special commands
 //#define MARLIN_DEV_MODE
