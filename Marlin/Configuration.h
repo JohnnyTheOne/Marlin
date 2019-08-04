@@ -606,7 +606,7 @@
 #define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
-//#define USE_XMAX_PLUG
+#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
 
@@ -614,7 +614,7 @@
 #define ENDSTOPPULLUPS
 #if DISABLED(ENDSTOPPULLUPS)
   // Disable ENDSTOPPULLUPS to set pullups individually
-  //#define ENDSTOPPULLUP_XMAX
+  #define ENDSTOPPULLUP_XMAX
   //#define ENDSTOPPULLUP_YMAX
   //#define ENDSTOPPULLUP_ZMAX
   #define ENDSTOPPULLUP_XMIN
@@ -640,7 +640,7 @@
 #define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
@@ -665,11 +665,11 @@
 #define Z_DRIVER_TYPE  TMC5160
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
-//#define Z2_DRIVER_TYPE A4988
-//#define Z3_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE TMC5160
+#define Z2_DRIVER_TYPE TMC5160
+//#define Z3_DRIVER_TYPE TMC5160
+#define E0_DRIVER_TYPE DRV8825
 #define E1_DRIVER_TYPE DRV8825
-#define E2_DRIVER_TYPE DRV8825
+//#define E2_DRIVER_TYPE DRV8825
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
 //#define E5_DRIVER_TYPE A4988
@@ -717,7 +717,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 813.5 } // A6-206.35 BMG-813.5
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2420, 813.5 } // A6-206.35 BMG-813.5
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -945,7 +945,7 @@
 #define Z_CLEARANCE_DEPLOY_PROBE    10 // Z Clearance for Deploy/Stow
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     2 // Z Clearance between multiple probes
-#define Z_AFTER_PROBING             5 // Z position after probing is done
+#define Z_AFTER_PROBING             15 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
@@ -1019,9 +1019,9 @@
 
 //#define NO_MOTION_BEFORE_HOMING  // Inhibit movement until all axes have been homed
 
-//#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
+#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-#define Z_HOMING_HEIGHT 5  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 10  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -1033,15 +1033,15 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 400
-#define Y_BED_SIZE 400
+#define X_BED_SIZE 500
+#define Y_BED_SIZE 500
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -53
-#define Y_MIN_POS -51.5
+#define X_MIN_POS -3
+#define Y_MIN_POS -1.5
 #define Z_MIN_POS 0
-#define X_MAX_POS (X_BED_SIZE + 53)
-#define Y_MAX_POS (Y_BED_SIZE + 51.5)
+#define X_MAX_POS (X_BED_SIZE + 3)
+#define Y_MAX_POS (Y_BED_SIZE + 1.5)
 #define Z_MAX_POS 750
 
 /**

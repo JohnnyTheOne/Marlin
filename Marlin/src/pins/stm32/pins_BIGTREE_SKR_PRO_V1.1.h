@@ -79,6 +79,13 @@
   #define Z_CS_PIN         PB9
 #endif
 
+#define Z2_STEP_PIN        PD13
+#define Z2_DIR_PIN         PG9
+#define Z2_ENABLE_PIN      PF0
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN        PG12
+#endif
+
 #define E0_STEP_PIN        PE14
 #define E0_DIR_PIN         PA0
 #define E0_ENABLE_PIN      PC3
