@@ -1836,9 +1836,9 @@
    */
   #define HYBRID_THRESHOLD
 
-  #define X_HYBRID_THRESHOLD     300  // [mm/s]
+  #define X_HYBRID_THRESHOLD     200  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
-  #define Y_HYBRID_THRESHOLD     300
+  #define Y_HYBRID_THRESHOLD     200
   #define Y2_HYBRID_THRESHOLD    100
   #define Z_HYBRID_THRESHOLD       1
   #define Z2_HYBRID_THRESHOLD      3
@@ -1883,9 +1883,11 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  3
-    #define Y_STALL_SENSITIVITY  3
-    #define Z_STALL_SENSITIVITY  0
+    #define X_STALL_SENSITIVITY  10
+    #define Y_STALL_SENSITIVITY  10
+    //#define Z_STALL_SENSITIVITY  8
+    #define SPI_ENDSTOPS              // TMC2130 only
+    #define IMPROVE_HOMING_RELIABILITY
   #endif
 
   /**
