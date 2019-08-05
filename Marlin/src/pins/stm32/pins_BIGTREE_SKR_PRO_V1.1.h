@@ -153,6 +153,9 @@
   #define Z_SERIAL_TX_PIN  PE1
   #define Z_SERIAL_RX_PIN  PE1
 
+  #define Z2_SERIAL_TX_PIN PD6
+  #define Z2_SERIAL_RX_PIN PD6
+
   #define E0_SERIAL_TX_PIN PD4
   #define E0_SERIAL_RX_PIN PD4
 
