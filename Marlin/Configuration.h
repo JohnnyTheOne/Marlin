@@ -833,7 +833,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-#define FIX_MOUNTED_PROBE
+//#define FIX_MOUNTED_PROBE
 
 /**
  * Z Servo Probe, such as an endstop switch on a rotating arm.
@@ -844,7 +844,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH
 
 /**
  * Touch-MI Probe by hotends.fr
@@ -1042,7 +1042,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE + 3)
 #define Y_MAX_POS (Y_BED_SIZE + 1.5)
-#define Z_MAX_POS 750
+#define Z_MAX_POS 900
 
 /**
  * Software Endstops
