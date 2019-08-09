@@ -52,7 +52,7 @@
 // Z Probe must be this pins
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  PA2
+  #define Z_MIN_PROBE_PIN  PG8 //PA2
 #endif
 
 //
@@ -77,6 +77,13 @@
 #define Z_ENABLE_PIN       PC0
 #ifndef Z_CS_PIN
   #define Z_CS_PIN         PB9
+#endif
+
+#define Z2_STEP_PIN        PD13
+#define Z2_DIR_PIN         PG9
+#define Z2_ENABLE_PIN      PF0
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN        PG12
 #endif
 
 #define E0_STEP_PIN        PE14
@@ -145,6 +152,9 @@
 
   #define Z_SERIAL_TX_PIN  PE1
   #define Z_SERIAL_RX_PIN  PE1
+
+  #define Z2_SERIAL_TX_PIN PD6
+  #define Z2_SERIAL_RX_PIN PD6
 
   #define E0_SERIAL_TX_PIN PD4
   #define E0_SERIAL_RX_PIN PD4
