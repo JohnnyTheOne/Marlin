@@ -825,7 +825,7 @@
 // @section lcd
 
 #if EITHER(ULTIPANEL, EXTENSIBLE_UI)
-  #define MANUAL_FEEDRATE { 50*60, 50*60, 4*60, 60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #define MANUAL_FEEDRATE { 50*60, 50*60, 20*60, 60 } // Feedrates for manual moves along X, Y, Z, E from panel
   #define SHORT_MANUAL_Z_MOVE 0.025 // (mm) Smallest manual Z move (< 0.1mm)
   #if ENABLED(ULTIPANEL)
     #define MANUAL_E_MOVES_RELATIVE // Display extruder move distance rather than "position"
@@ -1751,14 +1751,14 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT    1000
+    #define Z_CURRENT     800
     #define Z_MICROSTEPS   16
     #define Z_RSENSE    0.075
     #define Z_CHAIN_POS     0
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT   1000
+    #define Z2_CURRENT    800
     #define Z2_MICROSTEPS  16
     #define Z2_RSENSE   0.075
     #define Z2_CHAIN_POS    0
