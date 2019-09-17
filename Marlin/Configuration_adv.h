@@ -1763,14 +1763,14 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT     800
+    #define Z_CURRENT    1000
     #define Z_MICROSTEPS   16
     #define Z_RSENSE    0.075
     #define Z_CHAIN_POS     0
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT    800
+    #define Z2_CURRENT   1000
     #define Z2_MICROSTEPS  16
     #define Z2_RSENSE   0.075
     #define Z2_CHAIN_POS    0
@@ -1910,7 +1910,7 @@
    * Define you own with
    * { <off_time[1..15]>, <hysteresis_end[-3..12]>, hysteresis_start[1..8] }
    */
-  #define CHOPPER_TIMING CHOPPER_DEFAULT_12V
+  #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
 
   /**
    * Monitor Trinamic drivers for error conditions,
@@ -1989,12 +1989,12 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
+    #define X_STALL_SENSITIVITY  4
     //#define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
-    #define Z_STALL_SENSITIVITY  -20
+    #define Y_STALL_SENSITIVITY  4
+    #define Z_STALL_SENSITIVITY  -64
     //#define SPI_ENDSTOPS              // TMC2130 only
-    #define IMPROVE_HOMING_RELIABILITY
+    //#define IMPROVE_HOMING_RELIABILITY
   #endif
 
   /**

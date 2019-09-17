@@ -30,6 +30,7 @@
 #ifndef BOARD_INFO_NAME
  #define BOARD_INFO_NAME "BIGTREE SKR Pro 1.1" // redefined?
 #endif
+#define DEFAULT_MACHINE_NAME "JTO CoreXY"
 
 // Use one of these or SDCard-based Emulation will be used
 //#define SRAM_EEPROM_EMULATION   // Use BackSRAM-based EEPROM emulation
@@ -102,12 +103,12 @@
   #define E1_CS_PIN        PG15
 #endif
 
-//#define E2_STEP_PIN        PD13
-//#define E2_DIR_PIN         PG9
-//#define E2_ENABLE_PIN      PF0
-//#ifndef E2_CS_PIN
-//  #define E2_CS_PIN        PG12
-//#endif
+#define E2_STEP_PIN        PD13
+#define E2_DIR_PIN         PG9
+#define E2_ENABLE_PIN      PF0
+#ifndef E2_CS_PIN
+  #define E2_CS_PIN        PG12
+#endif
 
 //
 // Software SPI pins for TMC2130 stepper drivers
@@ -155,17 +156,14 @@
   #define Z_SERIAL_TX_PIN  PE1
   #define Z_SERIAL_RX_PIN  PE1
 
-  #define Z2_SERIAL_TX_PIN PD6
-  #define Z2_SERIAL_RX_PIN PD6
-
   #define E0_SERIAL_TX_PIN PD4
   #define E0_SERIAL_RX_PIN PD4
 
   #define E1_SERIAL_TX_PIN PD1
   #define E1_SERIAL_RX_PIN PD1
 
-  //#define E2_SERIAL_TX_PIN PD6
-  //#define E2_SERIAL_RX_PIN PD6
+  #define E2_SERIAL_TX_PIN PD6
+  #define E2_SERIAL_RX_PIN PD6
 #endif
 
 //
