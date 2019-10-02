@@ -46,8 +46,8 @@
 //
 #define X_MIN_PIN          PB10
 #define X_MAX_PIN          PE15
-#define Y_MIN_PIN          PE10 //PE12
-#define Y_MAX_PIN          PE12 //PE10
+#define Y_MIN_PIN          PE10 // PE12
+#define Y_MAX_PIN          PE12 // PE10
 #define Z_MIN_PIN          PG8
 #define Z_MAX_PIN          PG5
 
@@ -55,7 +55,7 @@
 // Z Probe must be this pins
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  PG8 //PA2
+  #define Z_MIN_PROBE_PIN  PG5 // PA2
 #endif
 
 //
@@ -82,13 +82,6 @@
   #define Z_CS_PIN         PB9
 #endif
 
-#define Z2_STEP_PIN        PD13
-#define Z2_DIR_PIN         PG9
-#define Z2_ENABLE_PIN      PF0
-#ifndef Z2_CS_PIN
-  #define Z2_CS_PIN        PG12
-#endif
-
 #define E0_STEP_PIN        PE14
 #define E0_DIR_PIN         PA0
 #define E0_ENABLE_PIN      PC3
@@ -103,12 +96,12 @@
   #define E1_CS_PIN        PG15
 #endif
 
-//#define E2_STEP_PIN        PD13
-//#define E2_DIR_PIN         PG9
-//#define E2_ENABLE_PIN      PF0
-//#ifndef E2_CS_PIN
-//  #define E2_CS_PIN        PG12
-//#endif
+#define E2_STEP_PIN        PD13
+#define E2_DIR_PIN         PG9
+#define E2_ENABLE_PIN      PF0
+#ifndef E2_CS_PIN
+  #define E2_CS_PIN        PG12
+#endif
 
 //
 // Software SPI pins for TMC2130 stepper drivers
