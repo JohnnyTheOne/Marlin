@@ -783,8 +783,8 @@
  *   https://reprap.org/forum/read.php?1,739819
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
-#if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM (.4 * DEFAULT_XJERK * DEFAULT_YJERK / DEFAULT_ACCELERATION) // (mm) Distance from real junction edge
+#if DISABLED(CLASSIC_JERK) // (.4 * DEFAULT_XJERK * DEFAULT_YJERK / DEFAULT_ACCELERATION)
+  #define JUNCTION_DEVIATION_MM 0.08 // (mm) Distance from real junction edge
 #endif
 
 /**
@@ -1037,7 +1037,7 @@
 
 //#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-#define Z_HOMING_HEIGHT 10  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 50  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -1055,10 +1055,10 @@
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -53
 #define Y_MIN_POS -51.5
-#define Z_MIN_POS 0
+#define Z_MIN_POS -50
 #define X_MAX_POS (X_BED_SIZE + 53)
 #define Y_MAX_POS (Y_BED_SIZE + 51.5)
-#define Z_MAX_POS 875
+#define Z_MAX_POS 850
 
 /**
  * Software Endstops
