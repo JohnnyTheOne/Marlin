@@ -524,7 +524,7 @@
 #define Z_HOME_BUMP_MM 0
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 //#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
-#define HOMING_BACKOFF_MM { 10, 10, 50 }  // (mm) Move away from the endstops after homing
+#define HOMING_BACKOFF_MM { 0, 0, 50 }  // (mm) Move away from the endstops after homing
 
 // When G28 is called, this option will make Y home before X
 #define HOME_Y_BEFORE_X
@@ -1826,7 +1826,7 @@
 
   #if AXIS_IS_TMC(X)
     #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
+    #define X_CURRENT_HOME  500  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.075    // TMC2130 0.11 TMC5160 0.075
     #define X_CHAIN_POS      -1        // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
@@ -1842,7 +1842,7 @@
 
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT       800
-    #define Y_CURRENT_HOME  Y_CURRENT
+    #define Y_CURRENT_HOME  500
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.075
     #define Y_CHAIN_POS      -1
@@ -2088,12 +2088,12 @@
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  5
+    #define X_STALL_SENSITIVITY  4
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  5
+    #define Y_STALL_SENSITIVITY  4
     #define Z_STALL_SENSITIVITY  2
     //#define SPI_ENDSTOPS              // TMC2130 only
-    #define HOME_USING_SPREADCYCLE
+    //#define HOME_USING_SPREADCYCLE
     #define IMPROVE_HOMING_RELIABILITY
   #endif
 
