@@ -919,7 +919,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 25
@@ -1050,15 +1050,15 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 400
-#define Y_BED_SIZE 400
+#define X_BED_SIZE 410
+#define Y_BED_SIZE 410
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -53
-#define Y_MIN_POS -51.5
+#define X_MIN_POS -48
+#define Y_MIN_POS -46.5
 #define Z_MIN_POS -50
-#define X_MAX_POS (X_BED_SIZE + 53)
-#define Y_MAX_POS (Y_BED_SIZE + 51.5)
+#define X_MAX_POS (X_BED_SIZE + 48)
+#define Y_MAX_POS (Y_BED_SIZE + 46.5)
 #define Z_MAX_POS 850
 
 /**
