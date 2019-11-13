@@ -714,14 +714,14 @@
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
- *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
+ *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.65, 80.32, 400, 206.35 } // A6-206.35 BMG-813.5
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
- *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
+ *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 10, 50 }
 
@@ -734,7 +734,7 @@
  * Default Max Acceleration (change/s) change = mm/s
  * (Maximum start speed for accelerated moves)
  * Override with M201
- *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
+ *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 10000 }
 
