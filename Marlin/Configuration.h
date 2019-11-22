@@ -1039,7 +1039,7 @@
 
 //#define UNKNOWN_Z_NO_RAISE // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-#define Z_HOMING_HEIGHT 50  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT 55  // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
@@ -1055,11 +1055,11 @@
 #define Y_BED_SIZE 410
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -48
-#define Y_MIN_POS -46.5
+#define X_MIN_POS -46
+#define Y_MIN_POS -14
 #define Z_MIN_POS -50
-#define X_MAX_POS (X_BED_SIZE + 48)
-#define Y_MAX_POS (Y_BED_SIZE + 46.5)
+#define X_MAX_POS (X_BED_SIZE + 50)
+#define Y_MAX_POS (Y_BED_SIZE + 79)
 #define Z_MAX_POS 850
 
 /**
