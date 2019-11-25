@@ -36,26 +36,45 @@
 //#define SRAM_EEPROM_EMULATION   // Use BackSRAM-based EEPROM emulation
 #define FLASH_EEPROM_EMULATION  // Use Flash-based EEPROM emulation
 
+
+/**
+ * Limit Switches
+ *
+ * For Stallguard homing to max swap the min / max pins so
+ * the MAX physical connectors can be used for other things.
+ */
+#if ENABLED(SENSORLESS_HOMING)
+  #define X_STOP_PIN       PB10
+  #define Y_STOP_PIN       PE12
+  #define Z_STOP_PIN       PG8
+#else
+  #define X_MIN_PIN        PB10
+  #define X_MAX_PIN        PE15
+  #define Y_MIN_PIN        PE12
+  #define Y_MAX_PIN        PE10
+  #define Z_MIN_PIN        PG8
+  #define Z_MAX_PIN        PG5
+#endif
+
 //
 // Servos
 //
-#define SERVO0_PIN         PA1
-
-//
-// Limit Switches
-//
-#define X_MIN_PIN          PB10
-#define X_MAX_PIN          PE15
-#define Y_MIN_PIN          PE10 // PE12
-#define Y_MAX_PIN          PE12 // PE10
-#define Z_MIN_PIN          PG8
-#define Z_MAX_PIN          PG5
+#ifndef SERVO0_PIN
+  #define SERVO0_PIN       PA1
+#endif
 
 //
 // Z Probe must be this pins
 //
 #ifndef Z_MIN_PROBE_PIN
   #define Z_MIN_PROBE_PIN  PG5 // PA2
+#endif
+
+//
+// Filament Runout Sensor
+//
+#ifndef FIL_RUNOUT_PIN
+  #define FIL_RUNOUT_PIN   PE15
 #endif
 
 //
