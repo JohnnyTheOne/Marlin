@@ -37,12 +37,9 @@
 #define FLASH_EEPROM_EMULATION  // Use Flash-based EEPROM emulation
 
 
-/**
- * Limit Switches
- *
- * For Stallguard homing to max swap the min / max pins so
- * the MAX physical connectors can be used for other things.
- */
+//
+// Limit Switches
+//
 #if ENABLED(SENSORLESS_HOMING)
   #define X_STOP_PIN       PB10
   #define Y_STOP_PIN       PE12
