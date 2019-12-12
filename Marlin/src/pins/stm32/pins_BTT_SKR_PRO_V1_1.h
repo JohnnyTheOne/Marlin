@@ -285,3 +285,15 @@
   #endif
 
 #endif // HAS_SPI_LCD
+
+//
+// SD Support
+//
+
+#ifndef SDCARD_CONNECTION
+  #define SDCARD_CONNECTION LCD
+#endif
+
+#if SD_CONNECTION_IS(LCD)
+  #define SS_PIN           PB12
+#endif
