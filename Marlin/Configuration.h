@@ -725,7 +725,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 5000, 5000, 10, 50 }
+#define DEFAULT_MAX_FEEDRATE          { 1000, 1000, 10, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -921,7 +921,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { -28.5, 2, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -28.5, 2, -2.65 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 25
