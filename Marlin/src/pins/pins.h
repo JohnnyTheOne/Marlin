@@ -247,6 +247,8 @@
   #include "mega/pins_OVERLORD.h"               // ATmega2560                             env:megaatmega2560
 #elif MB(HJC2560C_REV2)
   #include "mega/pins_HJC2560C_REV2.h"          // ATmega2560                             env:megaatmega2560
+#elif MB(LEAPFROG_XEED2015)
+  #include "mega/pins_LEAPFROG_XEED2015.h"      // ATmega2560                             env:megaatmega2560
 
 //
 // ATmega1281, ATmega2561
@@ -385,6 +387,8 @@
   #include "lpc1769/pins_SMOOTHIEBOARD.h"       // LPC1769                                env:LPC1769
 #elif MB(TH3D_EZBOARD)
   #include "lpc1769/pins_TH3D_EZBOARD.h"        // LPC1769                                env:LPC1769
+#elif MB(BIGTREE_SKR_V1_4_TURBO)
+  #include "lpc1769/pins_BTT_SKR_V1_4_TURBO.h"  // LPC1769                                env:LPC1769
 
 //
 // Due (ATSAM) boards

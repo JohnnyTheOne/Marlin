@@ -19,19 +19,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include "../../inc/MarlinConfig.h"
+#pragma once
 
-#if ENABLED(HOST_PROMPT_SUPPORT) && DISABLED(EMERGENCY_PARSER)
+#define BOARD_INFO_NAME "BIGTREE SKR 1.4 TURBO"
+#define SKR_HAS_LPC1769
 
-#include "../../feature/host_actions.h"
-#include "../gcode.h"
-#include "../../MarlinCore.h"
-
-/**
- * M876: Handle Prompt Response
- */
-void GcodeSuite::M876() {
-  if (parser.seenval('S')) host_response_handler((uint8_t)parser.value_int());
-}
-
-#endif // HOST_PROMPT_SUPPORT && !EMERGENCY_PARSER
+//
+// Include SKR 1.4 pins
+//
+#include "../lpc1768/pins_BTT_SKR_V1_4.h"
