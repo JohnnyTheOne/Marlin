@@ -28,14 +28,14 @@
 #endif
 
 #ifndef BOARD_INFO_NAME
- #define BOARD_INFO_NAME "BIGTREE SKR Pro 1.1" // redefined?
+  #define BOARD_INFO_NAME "BIGTREE SKR Pro 1.1" // redefined?
 #endif
+
 #define DEFAULT_MACHINE_NAME "JTO CoreXY"
 
 // Use one of these or SDCard-based Emulation will be used
 //#define SRAM_EEPROM_EMULATION   // Use BackSRAM-based EEPROM emulation
 #define FLASH_EEPROM_EMULATION  // Use Flash-based EEPROM emulation
-
 
 //
 // Limit Switches
@@ -47,8 +47,8 @@
 #else
   #define X_MIN_PIN        PB10
   #define X_MAX_PIN        PE15
-  #define Y_MIN_PIN        PE12
-  #define Y_MAX_PIN        PE10
+  #define Y_MIN_PIN        PE10 // PE12
+  #define Y_MAX_PIN        PE12 // PE10
   #define Z_MIN_PIN        PG8
   #define Z_MAX_PIN        PG5
 #endif
