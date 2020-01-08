@@ -738,7 +738,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 2000, 2000, 50, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 50, 10000 }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -786,7 +786,7 @@
  *   https://reprap.org/forum/read.php?1,739819
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
-#if DISABLED(CLASSIC_JERK) // (.4 * DEFAULT_XJERK * DEFAULT_YJERK / DEFAULT_ACCELERATION)
+#if DISABLED(CLASSIC_JERK) // 0.4 * DEFAULT_XJERK * DEFAULT_YJERK / DEFAULT_ACCELERATION
   #define JUNCTION_DEVIATION_MM 0.08 // (mm) Distance from real junction edge
 #endif
 
