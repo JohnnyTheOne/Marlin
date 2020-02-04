@@ -214,7 +214,7 @@
 #else
   #define SDSS             PB12
 #endif
-
+#define SD_SEARCH_ORDER { 1, 0}
 
 /**
  *               _____                                             _____
