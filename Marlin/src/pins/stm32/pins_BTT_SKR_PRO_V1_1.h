@@ -214,6 +214,7 @@
 #else
   #define SDSS             PB12
 #endif
+
 #define SD_SEARCH_ORDER { 1, 0}
 
 /**
@@ -223,7 +224,7 @@
  *   (MOSI)PB15 | · · | PF11(BTN_EN2)               (LCD_D5)  PG3 | · · | PG2  (LCD_D4)
  *  (SD_SS)PB12 | · · | PG10(BTN_EN1)               (LCD_RS) PD10 | · · | PD11 (LCD_EN)
  *    (SCK)PB13 | · · | PB14(MISO)                 (BTN_ENC)  PA8 | · · | PG4  (BEEPER)
- *               ￣￣                                               ￣￣
+ *                ￣￣                                              ￣￣
  *               EXP2                                              EXP1
  */
 
