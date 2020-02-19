@@ -923,7 +923,7 @@
 // @section lcd
 
 #if EITHER(ULTIPANEL, EXTENSIBLE_UI)
-  #define MANUAL_FEEDRATE { 50*60, 50*60, 20*60, 60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #define MANUAL_FEEDRATE { 60*60, 60*60, 20*60, 60 } // Feedrates for manual moves along X, Y, Z, E from panel
   #define SHORT_MANUAL_Z_MOVE 0.025 // (mm) Smallest manual Z move (< 0.1mm)
   #if ENABLED(ULTIPANEL)
     #define MANUAL_E_MOVES_RELATIVE // Display extruder move distance rather than "position"
@@ -2023,7 +2023,7 @@
 
   #if AXIS_IS_TMC(X)
     #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
+    #define X_CURRENT_HOME  400        // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.075    // TMC2130 0.11 TMC5160 0.075
     #define X_CHAIN_POS      -1        // <=0 : Not chained. 1 : MCU MOSI connected. 2 : Next in chain, ...
@@ -2039,7 +2039,7 @@
 
   #if AXIS_IS_TMC(Y)
     #define Y_CURRENT       800
-    #define Y_CURRENT_HOME  Y_CURRENT
+    #define Y_CURRENT_HOME  400
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.075
     #define Y_CHAIN_POS      -1
@@ -2269,7 +2269,7 @@
   #define Z2_HYBRID_THRESHOLD      5
   #define Z3_HYBRID_THRESHOLD      3
   #define Z4_HYBRID_THRESHOLD      3
-  #define E0_HYBRID_THRESHOLD     30
+  #define E0_HYBRID_THRESHOLD    300
   #define E1_HYBRID_THRESHOLD     30
   #define E2_HYBRID_THRESHOLD     30
   #define E3_HYBRID_THRESHOLD     30
