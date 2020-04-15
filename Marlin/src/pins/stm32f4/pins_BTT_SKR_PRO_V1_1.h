@@ -37,7 +37,7 @@
 //#define SRAM_EEPROM_EMULATION                   // Use BackSRAM-based EEPROM emulation
 #define FLASH_EEPROM_EMULATION                    // Use Flash-based EEPROM emulation
 
-//
+/* //
 // Limit Switches
 //
 #if ENABLED(SENSORLESS_HOMING)
@@ -51,20 +51,62 @@
   #define Y_MAX_PIN                         PE12 // PE10
   #define Z_MIN_PIN                         PG8
   #define Z_MAX_PIN                         PG5
+#endif */
+
+//
+// Trinamic Stallguard pins
+//
+#define X_DIAG_PIN                          PB10  // X-
+#define Y_DIAG_PIN                          PE12  // Y-
+#define Z_DIAG_PIN                          PG8   // Z-
+#define E0_DIAG_PIN                         PE15  // E0
+#define E1_DIAG_PIN                         PE10  // E1
+#define E2_DIAG_PIN                         PG5   // E2
+
+//
+// Limit Switches
+//
+#if X_STALL_SENSITIVITY
+  #define X_STOP_PIN                  X_DIAG_PIN
+  #if X_HOME_DIR < 0
+    #define X_MAX_PIN                       PE15  // E0
+  #else
+    #define X_MIN_PIN                       PE15  // E0
+  #endif
+#else
+  #define X_MIN_PIN                         PB10  // X-
+  #define X_MAX_PIN                         PE15  // E0
+#endif
+
+#if Y_STALL_SENSITIVITY
+  #define Y_STOP_PIN                  Y_DIAG_PIN
+  #if Y_HOME_DIR < 0
+    #define Y_MAX_PIN                       PE10  // E1
+  #else
+    #define Y_MIN_PIN                       PE10  // E1
+  #endif
+#else
+  #define Y_MIN_PIN                         PE12  // Y-
+  #define Y_MAX_PIN                         PE10  // E1
+#endif
+
+#if Z_STALL_SENSITIVITY
+  #define Z_STOP_PIN                  Z_DIAG_PIN
+  #if Z_HOME_DIR < 0
+    #define Z_MAX_PIN                       PG5   // E2
+  #else
+    #define Z_MIN_PIN                       PG5   // E2
+  #endif
+#else
+  #define Z_MIN_PIN                         PG8   // Z-
+  #define Z_MAX_PIN                         PG5   // E2
 #endif
 
 //
-// Servos
-//
-#ifndef SERVO0_PIN
-  #define SERVO0_PIN                        PA1
-#endif
-
-//
-// Z Probe must be this pins
+// Z Probe must be this pin
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN                   PG5 // PA2
+  #define Z_MIN_PROBE_PIN                   PA2
 #endif
 
 //
