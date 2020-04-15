@@ -37,7 +37,6 @@
 //#define SRAM_EEPROM_EMULATION                   // Use BackSRAM-based EEPROM emulation
 #define FLASH_EEPROM_EMULATION                    // Use Flash-based EEPROM emulation
 
-
 //
 // Servos
 //
