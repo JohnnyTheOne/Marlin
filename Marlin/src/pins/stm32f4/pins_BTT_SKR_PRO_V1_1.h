@@ -228,7 +228,11 @@
 #define HEATER_BED_PIN                      PD12  // Hotbed
 #define FAN_PIN                             PC8   // Fan0
 #define FAN1_PIN                            PE5   // Fan1
-#define FAN2_PIN                            PE6   // Fan2
+#define FAN2_PIN                            PE6
+
+#ifndef E0_AUTO_FAN_PIN
+  #define E0_AUTO_FAN_PIN                   PC9
+#endif
 
 //
 // Misc. Functions
@@ -240,16 +244,14 @@
 
 //
 // Onboard SD card
-//   NOT compatible with LCD
+// Must use soft SPI because Marlin's default hardware SPI is tied to LCD's EXP2
 //
-#if SDCARD_CONNECTION == ONBOARD && !HAS_SPI_LCD
+#if SD_CONNECTION_IS(ONBOARD)
   #define SOFTWARE_SPI                            // Use soft SPI for onboard SD
   #define SDSS                              PA4
   #define SCK_PIN                           PA5
   #define MISO_PIN                          PA6
   #define MOSI_PIN                          PB5
-#else
-  #define SDSS                              PB12
 #endif
 
 /**
@@ -269,6 +271,9 @@
 #if HAS_SPI_LCD
   #define BEEPER_PIN                        PG4
   #define BTN_ENC                           PA8
+  #if SD_CONNECTION_IS(LCD)
+    #define SDSS                            PB12  // Uses default hardware SPI for LCD's SD
+  #endif
 
   #if ENABLED(CR10_STOCKDISPLAY)
     #define LCD_PINS_RS                     PG6
@@ -284,6 +289,10 @@
     #undef ST7920_DELAY_1
     #undef ST7920_DELAY_2
     #undef ST7920_DELAY_3
+
+  #elif ENABLED(MKS_MINI_12864)
+    #define DOGLCD_A0                       PG6
+    #define DOGLCD_CS                       PG3
 
   #else
 
@@ -334,3 +343,21 @@
   #endif
 
 #endif // HAS_SPI_LCD
+
+//
+// WIFI
+//
+
+/**
+ *          _____
+ *      TX | 1 2 | GND      Enable PG1   // Must be high for module to run
+ *  Enable | 3 4 | GPIO2    Reset  PG0   // Leave as unused (OK to leave floating)
+ *   Reset | 5 6 | GPIO0    GPIO2  PF15  // Leave as unused (best to leave floating)
+ *     3.3V| 7 8 | RX       GPIO0  PF14  // Leave as unused (best to leave floating)
+ *           ￣￣
+ *            W1
+ */
+#define ESP_WIFI_MODULE_COM 6                     // must also set SERIAL_PORT or SERIAL_PORT_2 to this
+#define ESP_WIFI_MODULE_BAUDRATE        BAUDRATE  //115200   // use BAUDRATE ?  would guarantee same baud rate as SERIAL_PORT & SERIAL_PORT_2
+#define ESP_WIFI_MODULE_RESET_PIN           -1
+#define ESP_WIFI_MODULE_ENABLE_PIN          PG1
