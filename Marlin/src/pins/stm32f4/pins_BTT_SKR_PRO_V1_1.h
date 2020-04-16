@@ -359,5 +359,5 @@
  */
 #define ESP_WIFI_MODULE_COM 6                     // must also set SERIAL_PORT or SERIAL_PORT_2 to this
 #define ESP_WIFI_MODULE_BAUDRATE        BAUDRATE  //115200   // use BAUDRATE ?  would guarantee same baud rate as SERIAL_PORT & SERIAL_PORT_2
-#define ESP_WIFI_MODULE_RESET_PIN           -1
+#define ESP_WIFI_MODULE_RESET_PIN           1
 #define ESP_WIFI_MODULE_ENABLE_PIN          PG1
