@@ -41,7 +41,7 @@
 // Servos
 //
 #ifndef SERVO0_PIN
-  #define SERVO0_PIN                          PA1
+  #define SERVO0_PIN                        PA1
 #endif
 
 //
@@ -239,7 +239,7 @@
 //
 
 #ifndef SDCARD_CONNECTION
-  #define SDCARD_CONNECTION                  LCD
+  #define SDCARD_CONNECTION                 LCD
 #endif
 
 //
