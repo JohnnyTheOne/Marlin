@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -34,12 +34,10 @@
  */
 void GcodeSuite::M17() {
   if (parser.seen("XYZE")) {
-    if (parser.seen('X')) enable_X();
-    if (parser.seen('Y')) enable_Y();
-    if (parser.seen('Z')) enable_Z();
-    #if HAS_E_STEPPER_ENABLE
-      if (parser.seen('E')) enable_e_steppers();
-    #endif
+    if (parser.seen('X')) ENABLE_AXIS_X();
+    if (parser.seen('Y')) ENABLE_AXIS_Y();
+    if (parser.seen('Z')) ENABLE_AXIS_Z();
+    if (TERN0(HAS_E_STEPPER_ENABLE, parser.seen('E'))) enable_e_steppers();
   }
   else {
     LCD_MESSAGEPGM(MSG_NO_MOVE);
@@ -57,12 +55,10 @@ void GcodeSuite::M18_M84() {
   else {
     if (parser.seen("XYZE")) {
       planner.synchronize();
-      if (parser.seen('X')) disable_X();
-      if (parser.seen('Y')) disable_Y();
-      if (parser.seen('Z')) disable_Z();
-      #if HAS_E_STEPPER_ENABLE
-        if (parser.seen('E')) disable_e_steppers();
-      #endif
+      if (parser.seen('X')) DISABLE_AXIS_X();
+      if (parser.seen('Y')) DISABLE_AXIS_Y();
+      if (parser.seen('Z')) DISABLE_AXIS_Z();
+      if (TERN0(HAS_E_STEPPER_ENABLE, parser.seen('E'))) disable_e_steppers();
     }
     else
       planner.finish_and_disable();

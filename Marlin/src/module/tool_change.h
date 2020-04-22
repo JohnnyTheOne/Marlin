@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -31,9 +31,7 @@
       float swap_length, extra_prime;
       int16_t prime_speed, retract_speed;
     #endif
-    #if ENABLED(TOOLCHANGE_PARK)
-      xy_pos_t change_point;
-    #endif
+    TERN_(TOOLCHANGE_PARK, xy_pos_t change_point);
     float z_raise;
   } toolchange_settings_t;
 
@@ -93,9 +91,9 @@
   #endif
 #endif
 
-#if ENABLED(ELECTROMAGNETIC_SWITCHING_TOOLHEAD)
-  void est_init();
-#endif
+TERN_(ELECTROMAGNETIC_SWITCHING_TOOLHEAD, void est_init());
+
+TERN_(SWITCHING_TOOLHEAD, void swt_init());
 
 /**
  * Perform a tool-change, which may result in moving the
