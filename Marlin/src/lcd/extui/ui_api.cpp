@@ -946,7 +946,7 @@ namespace ExtUI {
       {
         #if HAS_HOTEND
           const int16_t e = heater - H0;
-          thermalManager.setTargetHotend(LROUND(constrain(value, 0, heater_maxtemp[e] - HOTEND_OVERSHOOT)), e);
+          thermalManager.setTargetHotend(LROUND(constrain(value, 0, thermalManager.heater_maxtemp[e] - HOTEND_OVERSHOOT)), e);
         #endif
       }
   }
@@ -958,7 +958,7 @@ namespace ExtUI {
     #if HAS_HOTEND
       const int16_t e = extruder - E0;
       enableHeater(extruder);
-      thermalManager.setTargetHotend(LROUND(constrain(value, 0, heater_maxtemp[e] - HOTEND_OVERSHOOT)), e);
+      thermalManager.setTargetHotend(LROUND(constrain(value, 0, thermalManager.heater_maxtemp[e] - HOTEND_OVERSHOOT)), e);
     #endif
   }
 
@@ -1039,13 +1039,7 @@ namespace ExtUI {
   bool FileList::seek(const uint16_t pos, const bool skip_range_check) {
     #if ENABLED(SDSUPPORT)
       if (!skip_range_check && (pos + 1) > count()) return false;
-      const uint16_t nr =
-        #if ENABLED(SDCARD_RATHERRECENTFIRST) && DISABLED(SDCARD_SORT_ALPHA)
-          count() - 1 -
-        #endif
-      pos;
-
-      card.getfilename_sorted(nr);
+      card.getfilename_sorted(SD_ORDER(pos, count()));
       return card.filename[0] != '\0';
     #else
       UNUSED(pos);
