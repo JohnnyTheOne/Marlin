@@ -34,8 +34,10 @@
 #define DEFAULT_MACHINE_NAME "JTO CoreXY"
 
 // Use one of these or SDCard-based Emulation will be used
-//#define SRAM_EEPROM_EMULATION                   // Use BackSRAM-based EEPROM emulation
-#define FLASH_EEPROM_EMULATION                    // Use Flash-based EEPROM emulation
+#if NO_EEPROM_SELECTED
+  //#define SRAM_EEPROM_EMULATION                 // Use BackSRAM-based EEPROM emulation
+  #define FLASH_EEPROM_EMULATION                  // Use Flash-based EEPROM emulation
+#endif
 
 //
 // Servos
