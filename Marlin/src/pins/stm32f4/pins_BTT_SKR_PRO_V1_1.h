@@ -28,7 +28,7 @@
 #endif
 
 #ifndef BOARD_INFO_NAME
-  #define BOARD_INFO_NAME "BIGTREE SKR Pro 1.1" // redefined?
+  #define BOARD_INFO_NAME "BTT SKR Pro V1.1" // redefined?
 #endif
 
 #define DEFAULT_MACHINE_NAME "JTO CoreXY"
