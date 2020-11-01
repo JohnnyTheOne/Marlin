@@ -745,7 +745,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.65, 80.32, 400, 195 } // A6-206.35 BMG-813.5
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.65, 80.32, 400, 195 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1133,7 +1133,7 @@
 #define X_MIN_POS -2
 #define Y_MIN_POS -17.5
 #define Z_MIN_POS 0
-#define X_MAX_POS (X_BED_SIZE + 8)
+#define X_MAX_POS (X_BED_SIZE + 7)
 #define Y_MAX_POS (Y_BED_SIZE + 8)
 #define Z_MAX_POS 240
 
