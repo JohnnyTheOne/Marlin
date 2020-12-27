@@ -95,6 +95,13 @@
 #endif
 
 //
+// Power Supply Control
+//
+#ifndef PS_ON_PIN
+  #define PS_ON_PIN                        P1_24
+#endif
+
+//
 // Steppers
 //
 #define X_STEP_PIN                         P2_02
