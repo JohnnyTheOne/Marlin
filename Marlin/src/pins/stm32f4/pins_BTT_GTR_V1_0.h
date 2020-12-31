@@ -30,6 +30,7 @@
 #endif
 
 #define BOARD_INFO_NAME "BTT GTR V1.0"
+#define DEFAULT_MACHINE_NAME "JTO CoreXY"
 
 // Onboard I2C EEPROM
 #define I2C_EEPROM
@@ -48,6 +49,19 @@
 #endif
 
 #define PS_ON_PIN                           PH6
+
+//
+// Filament Runout Sensor
+//
+#ifndef FIL_RUNOUT_PIN
+  #define FIL_RUNOUT_PIN                    PG14
+#endif
+#ifndef FIL_RUNOUT2_PIN
+  #define FIL_RUNOUT2_PIN                   PG9
+#endif
+#ifndef FIL_RUNOUT3_PIN
+  #define FIL_RUNOUT3_PIN                   PG3
+#endif
 
 //
 // Trinamic Stallguard pins
