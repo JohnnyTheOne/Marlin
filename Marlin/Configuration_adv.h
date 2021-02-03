@@ -3609,7 +3609,7 @@
   //#define E_MUX2_PIN 44  // Needed for 5 to 8 inputs
 #elif HAS_PRUSA_MMU2
   // Serial port used for communication with MMU2.
-  #define MMU2_SERIAL_PORT 3 //Serial3
+  #define MMU2_SERIAL_PORT 6 //Serial3 wifi
 
   // Use hardware reset for MMU if a pin is defined for it
   //#define MMU2_RST_PIN PB6
