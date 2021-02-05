@@ -3613,7 +3613,7 @@
   #define MMU2_SERIAL_PORT 6 //Serial3 wifi
 
   // Use hardware reset for MMU if a pin is defined for it
-  //#define MMU2_RST_PIN PB6
+  #define MMU2_RST_PIN PF11
 
   // Enable if the MMU2 has 12V stepper motors (MMU2 Firmware 1.0.2 and up)
   //#define MMU2_MODE_12V
