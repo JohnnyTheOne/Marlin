@@ -49,8 +49,15 @@
   #define SERVO0_PIN                        PB11
 #endif
 
-#define PS_ON_PIN                           PH6
-#define PS_OFF_PIN                          PC3
+//
+// Power Supply
+//
+#ifndef PS_ON_PIN
+  #define PS_ON_PIN                         PH6
+#endif
+#ifndef PS_OFF_PIN
+  #define PS_OFF_PIN                        PC3
+#endif
 
 //
 // Filament Runout Sensor
