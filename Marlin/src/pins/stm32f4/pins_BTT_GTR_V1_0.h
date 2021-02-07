@@ -50,13 +50,10 @@
 #endif
 
 //
-// Power Supply
+// Power Supply Control
 //
 #ifndef PS_ON_PIN
   #define PS_ON_PIN                         PH6
-#endif
-#ifndef PS_OFF_PIN
-  #define PS_OFF_PIN                        PC3
 #endif
 
 //
