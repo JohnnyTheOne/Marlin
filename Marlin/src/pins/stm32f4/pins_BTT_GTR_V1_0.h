@@ -62,12 +62,6 @@
 #ifndef FIL_RUNOUT_PIN
   #define FIL_RUNOUT_PIN                    PG14
 #endif
-#ifndef FIL_RUNOUT2_PIN
-  #define FIL_RUNOUT2_PIN                   PG9
-#endif
-#ifndef FIL_RUNOUT3_PIN
-  #define FIL_RUNOUT3_PIN                   PG3
-#endif
 
 //
 // Trinamic Stallguard pins
