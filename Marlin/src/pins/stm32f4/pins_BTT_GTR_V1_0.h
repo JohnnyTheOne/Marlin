@@ -60,7 +60,7 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                    PC5 //PG14
+  #define FIL_RUNOUT_PIN                    PC5
 #endif
 
 //
